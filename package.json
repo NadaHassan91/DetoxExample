@@ -1,0 +1,50 @@
+{
+  "name": "detoxnativeapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "build:ios": "detox build --configuration ios.sim.debug",
+    "build:android-debug": "detox build --configuration android.emu.debug",
+    "build:android-release": "detox build --configuration android.emu.release",
+    "test:ios": "detox test --configuration ios.sim.debug",
+    "test:android-debug": "detox test --configuration android.emu.debug",
+    "test:android-release": "detox test --configuration android.emu.release",
+    "test:android-release-ci": "detox test --configuration android.emu.release -l verbose --headless --record-logs all --take-screenshots all",
+    "e2e:ios": "npm run build:ios && npm run test:ios",
+    "e2e:android-debug": "npm run build:android-debug && npm run test:android-debug",
+    "e2e:android-release": "npm run build:android-release && npm run test:android-release",
+    "e2e:android-recorder": "detox recorder --configuration ios.sim.release --record"
+  },
+  "dependencies": {
+    "react": "17.0.1",
+    "react-native": "0.64.2",
+    "ts-node": "^10.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.24",
+    "@types/mocha": "^9.0.0",
+    "@types/react": "^17.0.15",
+    "@types/react-native": "^0.64.12",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^26.6.3",
+    "detox": "^18.20.1",
+    "detox-recorder": "^1.0.151",
+    "eslint": "7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "mocha": "^9.0.3",
+    "react-test-renderer": "17.0.1",
+    "typescript": "^4.3.5"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
